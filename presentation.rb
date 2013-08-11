@@ -1,5 +1,4 @@
-
-Shoes.app width: 1024, height: 768 do
+Shoes.app fullscreen: true do
   NEXT_KEYS = [:right]
   PREVIOUS_KEYS = [:left]
 
@@ -32,15 +31,28 @@ Shoes.app width: 1024, height: 768 do
 
   def setup_controls
     keypress do |key|
-      if NEXT_KEYS.include? key
-        #if @current_slide.effects_left?
-        #  @current_slide.trigger_effect
-        #else
-        next_slide
-        #end
-      end
-      previous_slide if PREVIOUS_KEYS.include? key
+      slide_controls key
+      fullscreen_controls key
     end
+  end
+
+  def slide_controls(key)
+    if NEXT_KEYS.include? key
+      #if @current_slide.effects_left?
+      #  @current_slide.trigger_effect
+      #else
+      next_slide
+      #end
+    end
+    previous_slide if PREVIOUS_KEYS.include? key
+  end
+
+  def fullscreen_controls(key)
+    toggle_fullscreen if key == :f11
+  end
+
+  def toggle_fullscreen
+    self.fullscreen = !fullscreen
   end
 
   start
