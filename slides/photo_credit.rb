@@ -1,5 +1,6 @@
 class PhotoCredit < Slide
   def content
-    para 'squeak screenshot http://squeak.org/Screenshots/'
+    headline 'Photo Credit'
+    bullet 'squeak screenshot http://squeak.org/Screenshots/'
   end
 end

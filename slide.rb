@@ -32,11 +32,20 @@ class Slide
   end
 
   def code(string)
-    para *highlight(string), size: CODE_SIZE
+    para highlight(string), size: CODE_SIZE, fill: lightgray
+  end
+
+  def headline(string)
+    title '  ' + string, size: HEADLINE_SIZE
+    empty_line
   end
 
   def bullet(string)
-    para '• ' + string, size: BULLET_POINT_SIZE
+    para '  • ' + string, size: BULLET_POINT_SIZE
+  end
+
+  def empty_line
+    para ' ', size: BULLET_POINT_SIZE
   end
 
   def fullscreen_image(path)
