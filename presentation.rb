@@ -1,10 +1,5 @@
-require_relative 'slide'
-Dir.glob('slides/*').each do |slide_file|
-  require_relative slide_file
-end
 
 Shoes.app width: 1024, height: 768 do
-  SLIDES = [Slide1, Slide2]
   NEXT_KEYS = [:right]
   PREVIOUS_KEYS = [:left]
 
