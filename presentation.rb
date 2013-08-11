@@ -12,7 +12,7 @@ Shoes.app fullscreen: true, title: 'Presentation' do
     @current_slide_number = number.to_i
     slide_class = SLIDES[@current_slide_number]
     slide = slide_class.new(app)
-    slide.content
+    slide.show
   end
 
   def next_slide

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'ext/highlighter'
 
 class Slide
@@ -14,6 +15,12 @@ class Slide
     # implemented by subclasses
   end
 
+  def show
+    stack do
+      content
+    end
+  end
+
   # copied from the URL implementation... weird but I want to have
   # classes not methods for this
   def method_missing(method, *args, &blk)
@@ -25,7 +32,11 @@ class Slide
   end
 
   def code(string)
-    para *highlight(string)
+    para *highlight(string), size: CODE_SIZE
+  end
+
+  def bullet(string)
+    para '• ' + string, size: BULLET_POINT_SIZE
   end
 
   def fullscreen_image(path)
