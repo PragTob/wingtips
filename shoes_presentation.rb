@@ -2,7 +2,7 @@ require_relative 'slide'
 Dir.glob('slides/*').each do |slide_file|
   require_relative slide_file
 end
-SLIDES = [Slide, SqueakSlide, IHeartShoes, General, MetaSlide, MissingBeforeAlpha, Outlook, PhotoCredit]
+SLIDES = [Slide, Squeak, IHeartShoes, General, HowDoesThisWork, MissingBeforeAlpha, Outlook, PhotoCredit]
 CODE_SIZE = 30
 BULLET_POINT_SIZE = 40
 HEADLINE_SIZE = 65
