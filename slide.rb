@@ -32,7 +32,7 @@ class Slide
   end
 
   def code(string)
-    para highlight(string), size: CODE_SIZE, fill: lightgray
+    para *highlight(string), size: CODE_SIZE
   end
 
   def headline(string)
