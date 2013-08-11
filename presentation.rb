@@ -1,4 +1,4 @@
-Shoes.app fullscreen: true do
+Shoes.app fullscreen: true, title: 'Presentation' do
   NEXT_KEYS = [:right]
   PREVIOUS_KEYS = [:left]
 

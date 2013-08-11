@@ -1,4 +1,7 @@
+require 'ext/highlighter'
+
 class Slide
+  include HH::Markup
 
   attr_reader :app
 
@@ -19,6 +22,10 @@ class Slide
     else
       super
     end
+  end
+
+  def code(string)
+    para *highlight(string)
   end
 
   private
