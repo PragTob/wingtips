@@ -28,6 +28,23 @@ class Slide
     para *highlight(string)
   end
 
+  def fullscreen_image(path)
+    img = image path
+    height_ratio = height.to_r/img.height
+    width_ratio = width.to_r/img.width
+    if width_ratio > height_ratio
+      scale_image_by img, width_ratio
+    else
+      scale_image_by img, height_ratio
+    end
+
+  end
+
+  def scale_image_by(img, ratio)
+    img.width = (img.width * ratio).to_i
+    img.height = (img.height * ratio).to_i
+  end
+
   private
   def after_initialize
     # subclasses if an after hook is needed
