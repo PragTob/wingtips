@@ -1,10 +1,11 @@
 class Samples < Slide
-  def content
-    headline 'Enough talking, more samplesgit s!'
+
+  def after_initialize
+    @effects << simple_anim << good_clock << snake << launch_tank_spank
   end
 
-  def effects
-    [simple_anim, good_clock, snake, launch_tank_spank]
+  def content
+    headline 'Enough talking, more samples!'
   end
 
   def launch_tank_spank

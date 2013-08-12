@@ -8,7 +8,7 @@ class Slide
 
   def initialize(app)
     @app = app
-    @effects = effects
+    @effects = []
     after_initialize
   end
 
@@ -32,13 +32,31 @@ class Slide
     end
   end
 
-  def code(string)
-    para *highlight(string), size: CODE_SIZE
+  def code(string, demo_as_effect = false)
+    source = source_from string
+    para *highlight(source), size: CODE_SIZE
+    add_demo_as_effect(source) if demo_as_effect
   end
 
-  def demo(file_path)
-    source = File.read file_path
+  def demo(string)
+    source = source_from string
     eval source
+  end
+
+  def source_from(string)
+    if is_file_path? string
+      File.read string
+    else
+      string
+    end
+  end
+
+  def is_file_path?(file_path)
+    File.exist? file_path
+  end
+
+  def add_demo_as_effect(string)
+    @effects << proc do demo(string) end
   end
 
   def headline(string)
@@ -72,11 +90,6 @@ class Slide
 
   def after_initialize
     # subclasses if an after hook is needed
-  end
-
-  # overwrite in subclass to provide effects
-  def effects
-    []
   end
 
   def effects_left?
