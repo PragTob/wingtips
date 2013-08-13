@@ -56,7 +56,11 @@ class Slide
   end
 
   def add_demo_as_effect(string)
-    @effects << proc do demo(string) end
+    add_effect do demo(string) end
+  end
+
+  def add_effect(&effect)
+    @effects << effect
   end
 
   def headline(string)
