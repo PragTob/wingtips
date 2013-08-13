@@ -64,8 +64,9 @@ class Slide
   end
 
   def headline(string)
-    title '  ' + string, size: HEADLINE_SIZE
+    text = title '  ' + string, size: HEADLINE_SIZE
     empty_line
+    text
   end
 
   def bullet(string)
@@ -80,11 +81,16 @@ class Slide
     img = image path
     height_ratio = height.to_r/img.height
     width_ratio = width.to_r/img.width
-    if width_ratio > height_ratio
-      scale_image_by img, width_ratio
-    else
-      scale_image_by img, height_ratio
-    end
+      scale_image_by img, [width_ratio, height_ratio].max
+    img
+  end
+
+  def fully_shown_image(path, additional_height = 0)
+    img = image path
+    height_ratio = (height - additional_height).to_r/img.height
+    width_ratio = width.to_r/img.width
+    scale_image_by img, [width_ratio, height_ratio].min
+    img
   end
 
   def scale_image_by(img, ratio)
