@@ -7,7 +7,7 @@ end
 NEXT_KEYS = [:right]
 PREVIOUS_KEYS = [:left]
 
-SLIDES = [Slide, Squeak, Keynote, Libreoffice, IHeartShoes, General, Shoes4, PluggableBackend, Samples, MoreSamples, BasicApp, HowDoesThisWork, MissingBeforeAlpha, BeforeRelease, LeftOut, WhyCare, AwesomeFinish, PhotoCredit]
+SLIDES = [Slide, Squeak, Keynote, Libreoffice, IHeartShoes, General, Shoes4, PluggableBackend, Samples, MoreSamples, BasicApp, HowDoesThisWork, MissingBeforeAlpha, BeforeRelease, LeftOut, WhyCare, Web, Console, Learn, Tool, GradeClass, PhotoCredit]
 CODE_SIZE = 30
 BULLET_POINT_SIZE = 40
 HEADLINE_SIZE = 65
