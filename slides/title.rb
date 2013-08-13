@@ -1,12 +1,17 @@
 class Title < Slide
   def content
     stack height: height/2 - 250
-    para 'Shoes4 - Ruby for GUI', align: 'center', size: VERY_BIG_SIZE
-    subtitle 'Tobias Pfeiffer (@PragTob)'
-    subtitle 'Blog: pragtob.wordpress.com'
+    centered_title 'Shoes4 - Ruby for GUI'
+    centered_subtitle 'Tobias Pfeiffer (@PragTob)'
+    centered_subtitle 'Blog: pragtob.wordpress.com'
   end
+end
 
-  def subtitle(string)
-    para string, align: 'center', size: BULLET_POINT_SIZE
+class ShoesOn < Slide
+  def content
+    stack height: height/2 - 200
+    centered_title 'Shoes on!'
+    empty_line
+    centered_subtitle 'Tobias Pfeiffer (@PragTob)'
   end
 end

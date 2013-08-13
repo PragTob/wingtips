@@ -3,6 +3,6 @@ class HowDoesThisWork < Slide
     headline 'How does this work?'
     bullet 'see the code of this slide: '
     empty_line
-    code File.read __FILE__
+    code __FILE__
   end
 end

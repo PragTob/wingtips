@@ -92,6 +92,14 @@ class Slide
     img.height = (img.height * ratio).to_i
   end
 
+  def centered_title(string)
+    para string, align: 'center', size: VERY_BIG_SIZE
+  end
+
+  def centered_subtitle(string)
+    para string, align: 'center', size: BULLET_POINT_SIZE
+  end
+
   def after_initialize
     # subclasses if an after hook is needed
   end

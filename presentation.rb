@@ -2,6 +2,7 @@ require_relative 'slide'
 
 module Presentation
   def self.start
+    puts "Presenting #{SLIDES.size} slides"
     Shoes.app fullscreen: true, title: 'Presentation' do
 
       def start
