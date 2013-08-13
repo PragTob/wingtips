@@ -1,5 +1,5 @@
 class Libreoffice < Slide
   def content
-    image 'images/libreoffice.png'
+    fullscreen_image 'images/libreoffice.png'
   end
 end
