@@ -7,7 +7,7 @@ end
 NEXT_KEYS = [:right, :page_down]
 PREVIOUS_KEYS = [:left, :page_up]
 
-SLIDES = [Slide, Squeak, Keynote, PowerPoint, Libreoffice, Idea, IHeartShoes, Title, General, Shoes4, PluggableBackend, Samples, MoreSamples, BasicApp, Layout, Flows, Stacks, HowDoesThisWork, MissingBeforeAlpha, BeforeRelease, LeftOut, WhyCare, Web, Console, Learn, Tool, GradeClass, Fun, IHeartShoes, ShoesOn, PhotoCredit]
+SLIDES = [Slide, Squeak, Keynote, PowerPoint, Libreoffice, Idea, IHeartShoes, Title, General, Shoes3, Shoes4, PluggableBackend, Samples, MoreSamples, BasicApp, Layout, Flows, Stacks, HowDoesThisWork, MissingBeforeAlpha, BeforeRelease, LeftOut, WhyCare, Web, Console, Learn, Tool, GradeClass, Fun, IHeartShoes, ShoesOn, PhotoCredit]
 PHOTO_CREDIT_SIZE = 18
 CODE_SIZE = 30
 BULLET_POINT_SIZE = 40
