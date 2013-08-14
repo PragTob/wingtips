@@ -120,6 +120,11 @@ class Slide
     effect.call
   end
 
+  def centered_huge_text(string)
+    stack height: height/2 - 100
+    para string, align: 'center', size: VERY_BIG_SIZE
+  end
+
   private
   def app_should_handle_method? method_name
     !self.respond_to?(method_name) && app.respond_to?(method_name)
