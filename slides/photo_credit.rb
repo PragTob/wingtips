@@ -8,5 +8,6 @@ class PhotoCredit < Slide
     bullet 'grade class Creative Commons Attribution-NonCommercial-NoDerivs http://www.flickr.com/photos/merrimack/5342561151/'
     bullet 'funny dog Creative Commons Attribution-NonCommercial-NoDeriv http://www.flickr.com/photos/kaihizzle/607949460/'
     bullet 'some images courtesy of Nobody Knows Shoes'
+    bullet 'Idea light bulb Creative Commons Attribution-NonCommercial-NoDerivs http://www.flickr.com/photos/danieloop/5336396524/'
   end
 end
