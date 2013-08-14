@@ -4,6 +4,7 @@ class MoreSamples < Slide
     image_appear 'images/infoes.png'
     image_appear 'images/gsWax.png'
     image_appear 'images/pomodoro_tracker.png'
+    image_appear 'images/drone.jpg'
     image_appear 'images/HacketyHack.png'
   end
 
