@@ -1,3 +1,4 @@
+require 'shoes'
 require_relative 'presentation'
 
 Dir.glob('slides/*').each do |slide_file|
