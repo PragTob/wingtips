@@ -5,7 +5,7 @@ class Samples < Slide
   end
 
   def content
-    headline 'Enough talking, more samples!'
+    headline 'Enough talking!'
   end
 
   def launch_tank_spank

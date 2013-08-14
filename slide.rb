@@ -34,6 +34,7 @@ class Slide
 
   def code(string, demo_as_effect = false)
     source = source_from string
+    source = source.split("\n").map{|line| '     ' + line}.join("\n")
     para *highlight(source), size: CODE_SIZE
     add_demo_as_effect(source) if demo_as_effect
   end
@@ -70,7 +71,7 @@ class Slide
   end
 
   def bullet(string)
-    para '  • ' + string, size: BULLET_POINT_SIZE
+    para '    • ' + string, size: BULLET_POINT_SIZE
   end
 
   def empty_line
