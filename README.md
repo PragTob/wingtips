@@ -20,3 +20,9 @@ Please open an issue if this instructions don't work out for you
 This is an alpha presentation software written with a pre-alpha GUI toolkit - so some things are a bit rough. Like the resolution as it does not fully adapt to every resolution - it should work, it might just look weird.
 
 If it does not work, please report an issue :-) I'll also upload a pdf slide set with screen shots (I haven't implemented PDF export yet ;-) )
+
+## Images
+
+I do not own some of the images I used, for those please see the PhotoCredit slide (last slide in the presentation).
+
+The images I used are either Creative Commons licensed in some way (mentioned in the PhotoCredit slide) or are some ad pictures that I hope people won't mind ;-)
