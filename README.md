@@ -12,8 +12,10 @@ Please open an issue if this instructions don't work out for you
 - run `bundle install` (this installs a current shoes4 pre-alpha release straight from github)
 - Running the presentation  (kind of optimized for 1024 * 768 since that's the beamer resolution at JRubyConf)
   - **Linux & Windows** run `ruby-shoes shoes_presentation.rb`
-  - **Mac OSX** (I don't have a Mac so still gotta validate this) run `bundle exec jruby -J-XstartOnFirstThread shoes_presentation.rb` - the parameter is needed for the JVM on OSX to get SWT running. We'll take care of this in a release.
-- use left/right arrow or page up/down to advance. F11 to toggle fullscreen.
+  - **Mac OSX (broken)** unfortunately fullscreen is broken on Mac :-( I'll see to make an option to launch without fullscreen so you can look at it although not in it's full awesomeness.
+- if your screen is a whole blank white page, then it worked (slide intentionally left blank)
+- use right/left arrow or page down/up to go to the next/previous slide. F11 to toggle fullscreen.
+- Enjoy the presentation :-)
 
 Hint: if you don't want to go through that trouble just to look at the slides I also posted various other links to them [here](https://pragtob.wordpress.com/2013/08/14/shoes-presentation-from-jrubyconf/)
 
