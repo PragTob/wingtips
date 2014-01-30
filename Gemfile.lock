@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/shoes/shoes4.git
-  revision: 1bd8c196e95516c2666f4b149b618686c231b96a
+  revision: 3851ae1893ed84609509fc0e118f9d72d2fb498a
   specs:
     shoes (4.0.0.pre1)
-      after_do (~> 0.2.2)
+      after_do (~> 0.3)
       furoshiki (>= 0.1.2)
       log4jruby
       nokogiri
@@ -12,19 +12,19 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    after_do (0.2.2)
+    after_do (0.3.0)
     furoshiki (0.1.2)
       plist
       rubyzip (< 1.0.0)
       warbler
-    jruby-jars (1.7.8)
+    jruby-jars (1.7.10)
     jruby-rack (1.1.13.3)
     log4jruby (0.5.0-java)
     mini_portile (0.5.2)
-    nokogiri (1.6.0-java)
+    nokogiri (1.6.1-java)
       mini_portile (~> 0.5.0)
     plist (3.1.0)
-    rake (10.1.0)
+    rake (10.1.1)
     rubyzip (0.9.9)
     swt (0.18)
     warbler (1.4.0)
