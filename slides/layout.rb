@@ -10,8 +10,8 @@ OFFSET_FOR_EMPTY_LINE = 60
 
 class Flows < Slide
   def content
-    head = headline 'Flows'
-    @image = fully_shown_image 'images/flow.png', head.height + OFFSET_FOR_EMPTY_LINE
+    headline 'Flows'
+    @image = fully_shown_image 'images/flow.png', 150
     add_effect do
       @image.remove
       code 'code/flow.rb', true
@@ -21,8 +21,8 @@ end
 
 class Stacks < Slide
   def content
-    head = headline 'Stacks'
-    @image = fully_shown_image 'images/stack.png', head.height + OFFSET_FOR_EMPTY_LINE
+    headline 'Stacks'
+    @image = fully_shown_image 'images/stack.png', 150
     add_effect do
       @image.remove
       code 'code/stack.rb', true
