@@ -12,7 +12,6 @@ class PluggableBackend < Slide
     backend_text = para 'Backend', size: BULLET_POINT_SIZE
     center_text_on dsl_text, dsl_rect
     center_text_on backend_text, backend_rect
-    app.gui.flush
   end
 
   def center_x(length)
@@ -20,8 +19,8 @@ class PluggableBackend < Slide
   end
 
   def center_text_on(text, rectangle)
-    new_left = rectangle.left + rectangle.width / 2 - text.width / 2
-    new_top = rectangle.top + rectangle.height / 2 - text.height / 2
+    new_left = rectangle.left + rectangle.width / 2 - 55 / 2
+    new_top = rectangle.top + rectangle.height / 2 - 35 / 2
     text.move new_left, new_top
   end
 end
