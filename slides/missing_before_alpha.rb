@@ -1,9 +1,10 @@
 class MissingBeforeAlpha < Slide
   def content
     headline 'Missing before alpha'
-    bullet 'span element for styling'
     bullet 'paragraph bugs'
-    bullet 'slot :top and :left'
-    bullet 'visibility methods'
+    bullet 'link issues'
+    bullet 'sample bugs/crashes'
+    bullet 'gutter'
+    bullet 'slot scrolling'
   end
 end

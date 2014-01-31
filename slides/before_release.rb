@@ -4,5 +4,6 @@ class BeforeRelease < Slide
     bullet 'Packaging'
     bullet '(a lot of) styles'
     bullet 'update manual'
+    bullet 'layouting bugs'
   end
 end
