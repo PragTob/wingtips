@@ -17,9 +17,13 @@ class Slide
   end
 
   def show
-    stack do
+    @main_slot = stack do
       content
     end
+  end
+
+  def append(&blk)
+    @main_slot.append &blk
   end
 
   # copied from the URL implementation... weird but I want to have
@@ -117,7 +121,7 @@ class Slide
 
   def trigger_effect
     effect = @effects.shift
-    effect.call
+    @main_slot.append &effect
   end
 
   def centered_huge_text(string)
