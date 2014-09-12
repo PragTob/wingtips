@@ -8,7 +8,7 @@ end
 NEXT_KEYS = [:right, :page_down]
 PREVIOUS_KEYS = [:left, :page_up]
 
-SLIDES = [Slide, Title, General, IHeartShoes, IsntDead,  Shoes4, PluggableBackend, Samples, BouncingBalls, MoreSamples, BasicApp, WhyCare, Web, Console, Learn, Tool, GradeClass, Fun, IHeartShoes, HowDoesThisWork, ShoesOn, PhotoCredit]
+SLIDES = [Slide, Title, General, IHeartShoes, IsntDead,  Shoes4, PluggableBackend, Samples, MoreSamples, BasicApp, WhyCare, Web, Console, Learn, Tool, GradeClass, Fun, IHeartShoes, HowDoesThisWork, ShoesOn, PhotoCredit]
 PHOTO_CREDIT_SIZE = 18
 CODE_SIZE = 30
 BULLET_POINT_SIZE = 40
