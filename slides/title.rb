@@ -3,7 +3,7 @@ class Title < Slide
     stack height: height/2 - 250
     centered_title 'Shoes4 - Ruby for GUI'
     centered_subtitle 'Tobias Pfeiffer (@PragTob)'
-    centered_subtitle 'Blog: pragtob.wordpress.com'
+    centered_subtitle 'pragtob.info'
   end
 end
 
