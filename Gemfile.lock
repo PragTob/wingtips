@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/shoes/shoes4.git
-  revision: dbeffff9765adc70319a0c087581080d01cf46e8
+  revision: 7b4ea24d500ed495b486faed63fa4bc88cb4860b
   specs:
     shoes (4.0.0.pre1)
       furoshiki (>= 0.1.2)
@@ -22,8 +22,8 @@ GEM
       plist
       rubyzip (< 1.0.0)
       warbler
-    jruby-jars (1.7.13)
-    jruby-rack (1.1.14)
+    jruby-jars (1.7.15)
+    jruby-rack (1.1.16)
     nokogiri (1.6.3.1-java)
     plist (3.1.0)
     rake (10.3.2)
