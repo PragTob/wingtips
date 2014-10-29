@@ -1,0 +1,61 @@
+PATH
+  remote: .
+  specs:
+    wingtips (0.0.1)
+
+PATH
+  remote: ../shoes4
+  specs:
+    shoes (4.0.0.pre2)
+      furoshiki (>= 0.1.2)
+      nokogiri
+      shoes-dsl (= 4.0.0.pre2)
+      shoes-swt (= 4.0.0.pre2)
+    shoes-dsl (4.0.0.pre2)
+    shoes-swt (4.0.0.pre2)
+      after_do (~> 0.3)
+      furoshiki (~> 0.2.0)
+      shoes-dsl (= 4.0.0.pre2)
+      swt (~> 4.4)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    after_do (0.3.1)
+    coderay (1.1.0)
+    ffi (1.9.6-java)
+    furoshiki (0.2.0)
+      plist
+      rubyzip (>= 1.0.0)
+      warbler (~> 1.4.4)
+    jruby-jars (1.7.16.1)
+    jruby-rack (1.1.16)
+    method_source (0.8.2)
+    nokogiri (1.6.3.1-java)
+    plist (3.1.0)
+    pry (0.10.1-java)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+      spoon (~> 0.0)
+    rake (10.3.2)
+    rubyzip (1.1.6)
+    slop (3.6.0)
+    spoon (0.0.4)
+      ffi
+    swt (4.4)
+    warbler (1.4.4)
+      jruby-jars (>= 1.5.6, < 2.0)
+      jruby-rack (>= 1.0.0)
+      rake (>= 0.9.6)
+      rubyzip (>= 0.9, < 1.2)
+
+PLATFORMS
+  java
+
+DEPENDENCIES
+  bundler (~> 1.7)
+  pry (~> 0.10.0)
+  rake (~> 10.0)
+  shoes!
+  wingtips!

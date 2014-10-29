@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'shoes', github: 'shoes/shoes4'
+gem 'wingtips', path: './wingtips'
+gem 'shoes',    github: 'shoes/shoes4'
 
