@@ -10,6 +10,7 @@ if ARGV.empty?
   config_path = File.expand_path("./config.rb")
 else
   config_path = File.expand_path(ARGV[0])
+  config_path = File.join(config_path, "config.rb") if File.directory?(config_path)
 end
 
 if File.exists?(config_path)
