@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'wingtips', path: './wingtips'
-gem 'shoes',    github: 'shoes/shoes4'
+gemspec
 
+# Currently the gem doesn't have the ext/highlighter we're using
+gem 'shoes', path: "../shoes4"
