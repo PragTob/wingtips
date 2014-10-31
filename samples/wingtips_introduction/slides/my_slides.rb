@@ -47,7 +47,7 @@ class Code < Wingtips::Slide
     code 'puts "Hello wingtips!"'
     empty_line
     subtitle 'Or a file'
-    code 'code/demo_code.rb'
+    code 'demo_code.rb'
   end
 end
 

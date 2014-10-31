@@ -12,6 +12,7 @@ module Wingtips
     VERY_BIG_SIZE     = 80
     ENORMOUS_SIZE     = 140
     IMAGES_DIRECTORY  = 'images/'
+    CODE_DIRECTORY    = 'code/'
 
     attr_reader :app
 
@@ -65,6 +66,8 @@ module Wingtips
     def source_from(string)
       if is_file_path? string
         File.read string
+      elsif is_file_path? CODE_DIRECTORY + string
+        File.read CODE_DIRECTORY + string
       else
         string
       end
