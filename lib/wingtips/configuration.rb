@@ -13,6 +13,8 @@ module Wingtips
     end
 
     def slides(*slide_classes)
+      # the empty slide at the start is needed as otherwise the dimensions
+      # of the first slide are most likely messed up
       @slide_classes = [Wingtips::Slide] + slide_classes
     end
   end
