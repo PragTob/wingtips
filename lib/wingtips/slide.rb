@@ -6,11 +6,12 @@ module Wingtips
     include HH::Markup
 
     PHOTO_CREDIT_SIZE = 18
-    CODE_SIZE = 30
+    CODE_SIZE         = 30
     BULLET_POINT_SIZE = 40
-    HEADLINE_SIZE = 65
-    VERY_BIG_SIZE = 80
-    ENORMOUS_SIZE = 140
+    HEADLINE_SIZE     = 65
+    VERY_BIG_SIZE     = 80
+    ENORMOUS_SIZE     = 140
+    IMAGES_DIRECTORY  = 'images/'
 
     attr_reader :app
 
@@ -96,7 +97,12 @@ module Wingtips
     end
 
     def image(path)
-      app.image(File.expand_path(path))
+      app.image(image_path(path))
+    end
+
+    def image_path(path)
+      path = IMAGES_DIRECTORY + path unless File.exist? path
+      File.expand_path(path)
     end
 
     def fullscreen_image(path)

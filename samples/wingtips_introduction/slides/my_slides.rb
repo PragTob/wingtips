@@ -20,7 +20,7 @@ class Images < Wingtips::Slide
   def content
     headline 'Embed images and shoes easily!'
 
-    image 'images/shoes-icon.png'
+    image 'shoes-icon.png'
     para 'standard shoes methods like para are of course okay as well!'
     subtitle 'Or some drawing'
     rect 300, 400, 200, 300, fill: lime
@@ -30,14 +30,14 @@ end
 class FullScreenImage < Wingtips::Slide
   def content
     # learning photo - Creative Commons Attribution-ShareAlike 2.0 http://www.flickr.com/photos/83633410@N07/7658165122/in/photostream/
-    fullscreen_image 'images/learning.jpg'
+    fullscreen_image 'learning.jpg'
   end
 end
 
 class FullyShownImage < Wingtips::Slide
   def content
     # learning photo - Creative Commons Attribution-ShareAlike 2.0 http://www.flickr.com/photos/83633410@N07/7658165122/in/photostream/
-    fully_shown_image 'images/learning.jpg'
+    fully_shown_image 'learning.jpg'
   end
 end
 
