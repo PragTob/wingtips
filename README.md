@@ -1,32 +1,57 @@
-Shoes Presentation
-==================
+# Wingtips
 
-A presentation about shoes - written in shoes (WIP)
+A presentation tool written in ruby - write your slides in Ruby!
 
-## Getting it running
+## Attention
 
-Please open an issue if this instructions don't work out for you
+This coming to a gem host near you soon enough, for now shoes4.pre2 is missing the files we need for code highlighting - we will try to figure this out soon enough :)
 
-- Clone this repository
-- Make sure you got jruby-1.7.0 or higher installed (I use jruby-1.7.4) along with the `bundler` gem
-- run `bundle install` (this installs a current shoes4 pre-alpha release straight from github)
-- Running the presentation  (kind of optimized for 1024 * 768 since that's the beamer resolution at JRubyConf)
-  - **Linux & Windows** run `ruby-shoes shoes_presentation.rb`
-  - **Mac OSX (broken)** unfortunately fullscreen is broken on Mac :-( I'll see to make an option to launch without fullscreen so you can look at it although not in it's full awesomeness.
-- if your screen is a whole blank white page, then it worked (slide intentionally left blank)
-- use right/left arrow or page down/up to go to the next/previous slide. F11 to toggle fullscreen.
-- Enjoy the presentation :-)
+## Installation
 
-Hint: if you don't want to go through that trouble just to look at the slides I also posted various other links to them [here](https://pragtob.wordpress.com/2013/08/14/shoes-presentation-from-jrubyconf/)
+Add this line to your application's Gemfile:
 
-## State of this
+```ruby
+gem 'wingtips'
+```
 
-This is an alpha presentation software written with a pre-alpha GUI toolkit - so some things are a bit rough. Like the resolution as it does not fully adapt to every resolution - it should work, it might just look weird.
+And then execute:
 
-If it does not work, please report an issue :-) I'll also upload a pdf slide set with screen shots (I haven't implemented PDF export yet ;-) )
+    $ bundle
 
-## Images
+Or install it yourself as:
 
-I do not own some of the images I used, for those please see the PhotoCredit slide (last slide in the presentation).
+    $ gem install wingtips
 
-The images I used are either Creative Commons licensed in some way (mentioned in the PhotoCredit slide) or are some ad pictures that I hope people won't mind ;-)
+## Usage
+
+A `wingtips` presentation expects this layout:
+
+```
+presentation_folder/
+  config.rb
+  slides/*.rb
+  code/*.rb
+  images/*.*
+```
+
+And a basic slide looks like this:
+
+```ruby
+class Bullets < Wingtips::Slide
+  def content
+    headline 'Use bullet points, would you?'
+
+    bullet "It's easy isn't it?"
+    bullet 'Just keep on'
+    bullet 'with ease!'
+  end
+end
+```
+
+## Contributing
+
+1. Fork it ( https://github.com/[my-github-username]/wingtips/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request

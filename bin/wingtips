@@ -1,0 +1,24 @@
+#! /usr/bin/env jruby
+
+require 'bundler/setup'
+Bundler.require
+
+require 'wingtips/presentation'
+require 'wingtips/configuration'
+
+if ARGV.empty?
+  config_path = File.expand_path("./config.rb")
+else
+  config_path = File.expand_path(ARGV[0])
+  config_path = File.join(config_path, "config.rb") if File.directory?(config_path)
+end
+
+if File.exists?(config_path)
+  Dir.chdir(File.dirname(config_path))
+
+  config = Wingtips::Configuration.new(config_path)
+  Wingtips::Presentation.start(config.slide_classes)
+else
+  puts "Whoops, don't have a config file at #{config_path}"
+end
+
