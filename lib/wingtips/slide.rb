@@ -57,7 +57,7 @@ module Wingtips
 
       last_app = Shoes.apps.last
       last_app.keypress do |key|
-        last_app.quit if key == "w"
+        last_app.quit if key == :ctrl_w
       end
     end
 
