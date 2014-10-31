@@ -1,10 +1,6 @@
-PATH
-  remote: .
-  specs:
-    wingtips (0.0.1)
-
-PATH
-  remote: ../shoes4
+GIT
+  remote: git://github.com/shoes/shoes4.git
+  revision: 9d180859faeda87ddbfbd99e95558f69ba303707
   specs:
     shoes (4.0.0.pre2)
       furoshiki (>= 0.1.2)
@@ -17,6 +13,11 @@ PATH
       furoshiki (~> 0.2.0)
       shoes-dsl (= 4.0.0.pre2)
       swt (~> 4.4)
+
+PATH
+  remote: .
+  specs:
+    wingtips (0.0.1)
 
 GEM
   remote: https://rubygems.org/
