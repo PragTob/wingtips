@@ -40,3 +40,21 @@ class FullyShownImage < Wingtips::Slide
     fully_shown_image 'images/learning.jpg'
   end
 end
+
+class Code < Wingtips::Slide
+  def content
+    subtitle 'Show code from a string...'
+    code 'puts "Hello wingtips!"'
+    empty_line
+    subtitle 'Or a file'
+    code 'code/demo_code.rb'
+  end
+end
+
+class CodeExecute < Wingtips::Slide
+  def content
+    headline 'Code and execute'
+
+    code 'alert "Surprse!"', true
+  end
+end
