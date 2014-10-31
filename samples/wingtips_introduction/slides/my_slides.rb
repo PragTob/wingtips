@@ -15,3 +15,28 @@ class Bullets < Wingtips::Slide
     bullet 'with ease!'
   end
 end
+
+class Images < Wingtips::Slide
+  def content
+    headline 'Embed images and shoes easily!'
+
+    image 'images/shoes-icon.png'
+    para 'standard shoes methods like para are of course okay as well!'
+    subtitle 'Or some drawing'
+    rect 300, 400, 200, 300, fill: lime
+  end
+end
+
+class FullScreenImage < Wingtips::Slide
+  def content
+    # learning photo - Creative Commons Attribution-ShareAlike 2.0 http://www.flickr.com/photos/83633410@N07/7658165122/in/photostream/
+    fullscreen_image 'images/learning.jpg'
+  end
+end
+
+class FullyShownImage < Wingtips::Slide
+  def content
+    # learning photo - Creative Commons Attribution-ShareAlike 2.0 http://www.flickr.com/photos/83633410@N07/7658165122/in/photostream/
+    fully_shown_image 'images/learning.jpg'
+  end
+end

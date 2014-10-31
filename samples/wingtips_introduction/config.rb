@@ -1,2 +1,2 @@
 # Arrange the order of your slides here
-slides Hello, Bullets
+slides Hello, Bullets, Images, FullScreenImage, FullyShownImage
