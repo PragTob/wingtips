@@ -64,10 +64,13 @@ module Wingtips
     end
 
     def source_from(string)
-      if is_file_path? string
+      candidate_locations = [string, CODE_DIRECTORY + string]
+      file_path = candidate_locations.find do |candidate_path|
+        is_file_path? candidate_path
+      end
+
+      if file_path
         File.read string
-      elsif is_file_path? CODE_DIRECTORY + string
-        File.read CODE_DIRECTORY + string
       else
         string
       end
