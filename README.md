@@ -1,6 +1,10 @@
 # Wingtips
 
-TODO: Write a gem description
+A presentation tool written in ruby - write your slides in Ruby!
+
+## Attention
+
+This coming to a gem host near you soon enough, for now shoes4.pre2 is missing the files we need for code highlighting - we will try to figure this out soon enough :)
 
 ## Installation
 
@@ -20,7 +24,29 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+A `wingtips` presentation expects this layout:
+
+```
+presentation_folder/
+  config.rb
+  slides/*.rb
+  code/*.rb
+  images/*.*
+```
+
+And a basic slide looks like this:
+
+```ruby
+class Bullets < Wingtips::Slide
+  def content
+    headline 'Use bullet points, would you?'
+
+    bullet "It's easy isn't it?"
+    bullet 'Just keep on'
+    bullet 'with ease!'
+  end
+end
+```
 
 ## Contributing
 
