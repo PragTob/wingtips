@@ -3,11 +3,15 @@ module Wingtips
     attr_reader :slide_classes
 
     def initialize(path)
+      @allow_unnamed_slides = false
+
       path = File.expand_path(path)
       dir  = File.dirname(path)
       Dir[File.join(dir, "slides/*.rb")].each do |file|
         self.instance_eval(File.read(file)) unless file == path
       end
+
+      @allow_unnamed_slides = true
 
       # the empty slide at the start is needed as otherwise the dimensions
       # of the first slide are most likely messed up
@@ -22,8 +26,11 @@ module Wingtips
         define_method(:content, &content)
       end
 
-      if title.nil?
+      if @allow_unnamed_slides && title.nil?
         @slide_classes << clazz
+      elsif title.nil?
+        raise "Unnamed calls to `slide do` aren't allowed in the slides subdirectory.\n" \
+              "Try `slide \"MySlide\" do` so you can reference it in config."
       else
         Object.const_set(title, clazz)
       end
