@@ -9,6 +9,8 @@ module Wingtips
         self.instance_eval(File.read(file)) unless file == path
       end
 
+      # the empty slide at the start is needed as otherwise the dimensions
+      # of the first slide are most likely messed up
       @slide_classes = [Wingtips::Slide]
 
       self.instance_eval(File.read(path))
@@ -28,8 +30,6 @@ module Wingtips
     end
 
     def slides(*slide_classes)
-      # the empty slide at the start is needed as otherwise the dimensions
-      # of the first slide are most likely messed up
       @slide_classes.concat(slide_classes)
     end
   end
