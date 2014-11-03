@@ -1,8 +1,13 @@
 module Wingtips
   class Configuration
-    attr_reader :slide_classes
+    attr_reader :slide_classes, :app_options
 
     def initialize(path)
+      @app_options = {
+        title:      'Presentation',
+        fullscreen: true
+      }
+
       full_path = File.expand_path(path)
       load_named_slides full_path
 
@@ -11,6 +16,10 @@ module Wingtips
       @slide_classes = [Wingtips::Slide]
 
       self.instance_eval(File.read(full_path))
+    end
+
+    def startup_options(opts={})
+      @app_options.merge!(opts)
     end
 
     def slide(title=nil, &content)
