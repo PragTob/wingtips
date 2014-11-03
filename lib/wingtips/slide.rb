@@ -25,7 +25,7 @@ module Wingtips
     end
 
     def show
-      @main_slot = stack do
+      @main_slot = stack height: app.height do
         content
       end
     end
