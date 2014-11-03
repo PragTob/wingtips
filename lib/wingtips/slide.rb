@@ -95,8 +95,8 @@ module Wingtips
       para ' ', size: BULLET_POINT_SIZE
     end
 
-    def image(path)
-      app.image(File.expand_path(path))
+    def image(path, *args)
+      app.image(File.expand_path(path), *args)
     end
 
     def fullscreen_image(path)
