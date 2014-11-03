@@ -3,7 +3,10 @@ module Wingtips
     attr_reader :slide_classes, :app_options
 
     def initialize(path)
-      @app_options = {}
+      @app_options = {
+        title:      'Presentation',
+        fullscreen: true
+      }
 
       full_path = File.expand_path(path)
       load_named_slides full_path
