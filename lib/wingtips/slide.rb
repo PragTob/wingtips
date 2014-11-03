@@ -44,21 +44,24 @@ module Wingtips
       end
     end
 
-    def code(string, demo_as_effect = false)
+    def code(string, demo_as_effect = false, &block)
       source = source_from string
       source = source.split("\n").map{|line| '     ' + line}.join("\n")
-      para *highlight(source), size: CODE_SIZE
-      add_demo_as_effect(source) if demo_as_effect
+      highlighted_code = para *highlight(source), size: CODE_SIZE
+      add_demo_as_effect(source, &block) if demo_as_effect
+      highlighted_code
     end
 
-    def demo(string)
+    def demo(string, &block)
       source = source_from string
       eval source
 
       last_app = Shoes.apps.last
       last_app.keypress do |key|
-        last_app.quit if key == "w"
+        last_app.quit if key == :control_w
       end
+
+      yield last_app if block_given?
     end
 
     def source_from(string)
@@ -73,8 +76,8 @@ module Wingtips
       File.exist? file_path
     end
 
-    def add_demo_as_effect(string)
-      add_effect do demo(string) end
+    def add_demo_as_effect(string, &block)
+      add_effect do demo(string, &block) end
     end
 
     def add_effect(&effect)
