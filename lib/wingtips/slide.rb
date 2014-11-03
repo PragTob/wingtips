@@ -47,9 +47,9 @@ module Wingtips
     def code(string, demo_as_effect = false, &block)
       source = source_from string
       source = source.split("\n").map{|line| '     ' + line}.join("\n")
-      element = para *highlight(source), size: CODE_SIZE
+      highlighted_code = para *highlight(source), size: CODE_SIZE
       add_demo_as_effect(source, &block) if demo_as_effect
-      element
+      highlighted_code
     end
 
     def demo(string, &block)
