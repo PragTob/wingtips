@@ -2,8 +2,8 @@ require 'wingtips/slide'
 
 module Wingtips
   module Presentation
-    NEXT_KEYS = [:right, :page_down]
-    PREVIOUS_KEYS = [:left, :page_up]
+    NEXT_KEYS     = [:right, :page_down, " "]
+    PREVIOUS_KEYS = [:left,  :page_up, :backspace]
 
     def self.start(slides)
       puts "Presenting #{slides.size} slides"
