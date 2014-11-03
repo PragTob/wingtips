@@ -3,21 +3,14 @@ module Wingtips
     attr_reader :slide_classes
 
     def initialize(path)
-      @allow_unnamed_slides = false
-
-      path = File.expand_path(path)
-      dir  = File.dirname(path)
-      Dir[File.join(dir, "slides/*.rb")].each do |file|
-        self.instance_eval(File.read(file)) unless file == path
-      end
-
-      @allow_unnamed_slides = true
+      full_path = File.expand_path(path)
+      load_named_slides full_path
 
       # the empty slide at the start is needed as otherwise the dimensions
       # of the first slide are most likely messed up
       @slide_classes = [Wingtips::Slide]
 
-      self.instance_eval(File.read(path))
+      self.instance_eval(File.read(full_path))
     end
 
     def slide(title=nil, &content)
@@ -30,7 +23,16 @@ module Wingtips
     end
 
     private
-    def create_slide_class content
+    def load_named_slides(full_path)
+      @allow_unnamed_slides = false
+      dir = File.dirname(full_path)
+      Dir[File.join(dir, "slides/*.rb")].each do |file|
+        self.instance_eval(File.read(file)) unless file == full_path
+      end
+      @allow_unnamed_slides = true
+    end
+
+    def create_slide_class(content)
       clazz = Class.new(Wingtips::Slide)
       clazz.class_eval do
         define_method(:content, &content)
@@ -38,7 +40,7 @@ module Wingtips
       clazz
     end
 
-    def publish_slide_class clazz, title
+    def publish_slide_class(clazz, title)
       if @allow_unnamed_slides && title.nil?
         @slide_classes << clazz
       elsif title.nil?
