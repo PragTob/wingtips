@@ -4,11 +4,14 @@ module Wingtips
   module Presentation
     NEXT_KEYS     = [:right, :page_down, " "]
     PREVIOUS_KEYS = [:left,  :page_up, :backspace]
+    DEFAULT_OPTIONS = { title: 'Presentation', fullscreen: true }
 
-    def self.start(slides)
+    def self.start(config)
+      slides = config.slide_classes
       puts "Presenting #{slides.size} slides"
 
-      Shoes.app fullscreen: true, title: 'Presentation' do
+      opts = DEFAULT_OPTIONS.merge(config.app_options)
+      Shoes.app(opts) do
         @slides = slides
 
         def start
