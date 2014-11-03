@@ -55,7 +55,13 @@ module Wingtips
     def demo(string, &block)
       source = source_from string
       eval source
-      yield Shoes.apps.last if block_given?
+
+      last_app = Shoes.apps.last
+      last_app.keypress do |key|
+        last_app.quit if key == :control_w
+      end
+
+      yield last_app if block_given?
     end
 
     def source_from(string)
