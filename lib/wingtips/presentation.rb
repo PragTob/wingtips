@@ -16,8 +16,18 @@ module Wingtips
           go_to_slide(0)
         end
 
+        def on_hide(&block)
+          @on_hide_block = block
+        end
+
+        def hiding
+          @on_hide_block.call if @on_hide_block
+        end
+
         def go_to_slide(number)
           clear
+          @current_slide.hiding if @current_slide
+
           @current_slide_number = number.to_i
           slide_class = @slides[@current_slide_number]
           @current_slide = slide_class.new(app)
