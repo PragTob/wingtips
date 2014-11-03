@@ -21,11 +21,24 @@ module Wingtips
     end
 
     def slide(title=nil, &content)
+      clazz = create_slide_class content
+      publish_slide_class clazz, title
+    end
+
+    def slides(*slide_classes)
+      @slide_classes.concat(slide_classes)
+    end
+
+    private
+    def create_slide_class content
       clazz = Class.new(Wingtips::Slide)
       clazz.class_eval do
         define_method(:content, &content)
       end
+      clazz
+    end
 
+    def publish_slide_class clazz, title
       if @allow_unnamed_slides && title.nil?
         @slide_classes << clazz
       elsif title.nil?
@@ -34,10 +47,6 @@ module Wingtips
       else
         Object.const_set(title, clazz)
       end
-    end
-
-    def slides(*slide_classes)
-      @slide_classes.concat(slide_classes)
     end
   end
 end
