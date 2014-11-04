@@ -1,16 +1,19 @@
 # encoding: UTF-8
 require 'ext/highlighter'
 
-PHOTO_CREDIT_SIZE = 18
-CODE_SIZE = 30
-BULLET_POINT_SIZE = 40
-HEADLINE_SIZE = 65
-VERY_BIG_SIZE = 80
-ENORMOUS_SIZE = 140
-
 module Wingtips
+  PHOTO_CREDIT_SIZE = 18
+  CODE_SIZE = 30
+  BULLET_POINT_SIZE = 40
+  HEADLINE_SIZE = 65
+  VERY_BIG_SIZE = 80
+  ENORMOUS_SIZE = 140
+
   class Slide
     include HH::Markup
+
+    IMAGES_DIRECTORY  = 'images/'
+    CODE_DIRECTORY    = 'code/'
 
     attr_reader :app
 
