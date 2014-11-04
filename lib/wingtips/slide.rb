@@ -64,20 +64,13 @@ module Wingtips
     end
 
     def source_from(string)
-      candidate_locations = [string, CODE_DIRECTORY + string]
-      file_path = candidate_locations.find do |candidate_path|
-        is_file_path? candidate_path
-      end
+      file_path = find_file_in(string, [CODE_DIRECTORY])
 
       if file_path
-        File.read string
+        File.read file_path
       else
         string
       end
-    end
-
-    def is_file_path?(file_path)
-      File.exist? file_path
     end
 
     def add_demo_as_effect(string)
@@ -107,7 +100,7 @@ module Wingtips
     end
 
     def image_path(path)
-      path = IMAGES_DIRECTORY + path unless File.exist? path
+      path = find_file_in(path, [IMAGES_DIRECTORY])
       File.expand_path(path)
     end
 
@@ -159,6 +152,18 @@ module Wingtips
     end
 
     private
+    def find_file_in(file_path, locations)
+      candidate_locations = locations.map {|location| location + file_path}
+      candidate_locations << file_path
+      candidate_locations.find do |candidate_path|
+        is_file_path? candidate_path
+      end
+    end
+
+    def is_file_path?(file_path)
+      File.exist? file_path
+    end
+
     def app_should_handle_method? method_name
       !self.respond_to?(method_name) && app.respond_to?(method_name)
     end
