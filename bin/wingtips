@@ -17,7 +17,7 @@ if File.exists?(config_path)
   Dir.chdir(File.dirname(config_path))
 
   config = Wingtips::Configuration.new(config_path)
-  Wingtips::Presentation.start(config.slide_classes)
+  Wingtips::Presentation.start(config)
 else
   puts "Whoops, don't have a config file at #{config_path}"
 end

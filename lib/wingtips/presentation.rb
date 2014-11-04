@@ -2,13 +2,14 @@ require 'wingtips/slide'
 
 module Wingtips
   module Presentation
-    NEXT_KEYS = [:right, :page_down]
-    PREVIOUS_KEYS = [:left, :page_up]
+    NEXT_KEYS     = [:right, :page_down, " "]
+    PREVIOUS_KEYS = [:left,  :page_up, :backspace]
 
-    def self.start(slides)
+    def self.start(config)
+      slides = config.slide_classes
       puts "Presenting #{slides.size} slides"
 
-      Shoes.app fullscreen: true, title: 'Presentation' do
+      Shoes.app(config.app_options) do
         @slides = slides
 
         def start
@@ -16,8 +17,18 @@ module Wingtips
           go_to_slide(0)
         end
 
+        def on_slide_change(&block)
+          @on_slide_change_block = block
+        end
+
+        def slide_changing
+          @on_slide_change_block.call if @on_slide_change_block
+        end
+
         def go_to_slide(number)
           clear
+          @current_slide.slide_changing if @current_slide
+
           @current_slide_number = number.to_i
           slide_class = @slides[@current_slide_number]
           @current_slide = slide_class.new(app)
