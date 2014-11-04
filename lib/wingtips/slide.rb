@@ -2,15 +2,16 @@
 require 'ext/highlighter'
 
 module Wingtips
+  PHOTO_CREDIT_SIZE = 18
+  CODE_SIZE = 30
+  BULLET_POINT_SIZE = 40
+  HEADLINE_SIZE = 65
+  VERY_BIG_SIZE = 80
+  ENORMOUS_SIZE = 140
+
   class Slide
     include HH::Markup
 
-    PHOTO_CREDIT_SIZE = 18
-    CODE_SIZE         = 30
-    BULLET_POINT_SIZE = 40
-    HEADLINE_SIZE     = 65
-    VERY_BIG_SIZE     = 80
-    ENORMOUS_SIZE     = 140
     IMAGES_DIRECTORY  = 'images/'
     CODE_DIRECTORY    = 'code/'
 
@@ -128,12 +129,40 @@ module Wingtips
       img.height = (img.height * ratio).to_i
     end
 
-    def centered_title(string)
-      para string, align: 'center', size: VERY_BIG_SIZE
+    def centered_title(string, opts={})
+      para string, defaulted_options(opts,
+                                     align: 'center',
+                                     size: VERY_BIG_SIZE,
+                                     margin_top: 50)
     end
 
-    def centered_subtitle(string)
-      para string, align: 'center', size: BULLET_POINT_SIZE
+    def centered_subtitle(string, opts={})
+      para string, defaulted_options(opts,
+                                     align: 'center',
+                                     size: BULLET_POINT_SIZE,
+                                     margin_top: 50)
+    end
+
+    def centered_huge_text(string, opts={})
+      para string, defaulted_options(opts,
+                                     align: 'center',
+                                     size: VERY_BIG_SIZE,
+                                     margin_top: 50)
+    end
+
+    def centered_enormous_text(string, opts={})
+      para string, defaulted_options(opts,
+                                     align: 'center',
+                                     size: ENORMOUS_SIZE,
+                                     margin_top: 50)
+    end
+
+    def defaulted_options(passed, defaults={})
+      results = defaults.merge(passed)
+      if results[:vertical_align] == 'center'
+        results[:margin_top] = height/2 - 100
+      end
+      results
     end
 
     def after_initialize
@@ -147,11 +176,6 @@ module Wingtips
     def trigger_effect
       effect = @effects.shift
       @main_slot.append &effect
-    end
-
-    def centered_huge_text(string)
-      stack height: height/2 - 100
-      para string, align: 'center', size: VERY_BIG_SIZE
     end
 
     private
