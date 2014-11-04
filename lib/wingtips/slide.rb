@@ -6,11 +6,13 @@ module Wingtips
     include HH::Markup
 
     PHOTO_CREDIT_SIZE = 18
-    CODE_SIZE = 30
+    CODE_SIZE         = 30
     BULLET_POINT_SIZE = 40
-    HEADLINE_SIZE = 65
-    VERY_BIG_SIZE = 80
-    ENORMOUS_SIZE = 140
+    HEADLINE_SIZE     = 65
+    VERY_BIG_SIZE     = 80
+    ENORMOUS_SIZE     = 140
+    IMAGES_DIRECTORY  = 'images/'
+    CODE_DIRECTORY    = 'code/'
 
     attr_reader :app
 
@@ -65,15 +67,13 @@ module Wingtips
     end
 
     def source_from(string)
-      if is_file_path? string
-        File.read string
+      file_path = find_file_in(string, [CODE_DIRECTORY])
+
+      if file_path
+        File.read file_path
       else
         string
       end
-    end
-
-    def is_file_path?(file_path)
-      File.exist? file_path
     end
 
     def add_demo_as_effect(string, &block)
@@ -99,7 +99,12 @@ module Wingtips
     end
 
     def image(path, *args)
-      app.image(File.expand_path(path), *args)
+      app.image(image_path(path), *args)
+    end
+
+    def image_path(path)
+      path = find_file_in(path, [IMAGES_DIRECTORY])
+      File.expand_path(path)
     end
 
     def fullscreen_image(path)
@@ -150,6 +155,18 @@ module Wingtips
     end
 
     private
+    def find_file_in(file_path, locations)
+      candidate_locations = locations.map {|location| location + file_path}
+      candidate_locations << file_path
+      candidate_locations.find do |candidate_path|
+        is_file_path? candidate_path
+      end
+    end
+
+    def is_file_path?(file_path)
+      File.exist? file_path
+    end
+
     def app_should_handle_method? method_name
       !self.respond_to?(method_name) && app.respond_to?(method_name)
     end
