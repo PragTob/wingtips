@@ -1,8 +1,11 @@
 module Wingtips
   class Configuration
+    include SlideDSL
+    
     attr_reader :slide_classes, :app_options
 
     def initialize(path)
+      self.class.current = self
       @app_options = {
         title:      'Presentation',
         fullscreen: true
@@ -22,13 +25,16 @@ module Wingtips
       @app_options.merge!(opts)
     end
 
-    def slide(title=nil, &content)
-      clazz = create_slide_class content
-      publish_slide_class clazz, title
-    end
-
     def slides(*slide_classes)
       @slide_classes.concat(slide_classes)
+    end
+    
+    def unnamed_slides_allowed?
+      @allow_unnamed_slides
+    end
+    
+    class << self
+      attr_accessor :current
     end
 
     private
@@ -36,28 +42,9 @@ module Wingtips
       @allow_unnamed_slides = false
       dir = File.dirname(full_path)
       Dir[File.join(dir, "slides/*.rb")].each do |file|
-        self.instance_eval(File.read(file)) unless file == full_path
+        require file unless file == full_path
       end
       @allow_unnamed_slides = true
-    end
-
-    def create_slide_class(content)
-      clazz = Class.new(Wingtips::Slide)
-      clazz.class_eval do
-        define_method(:content, &content)
-      end
-      clazz
-    end
-
-    def publish_slide_class(clazz, title)
-      if @allow_unnamed_slides && title.nil?
-        @slide_classes << clazz
-      elsif title.nil?
-        raise "Unnamed calls to `slide do` aren't allowed in the slides subdirectory.\n" \
-              "Try `slide \"MySlide\" do` so you can reference it in config."
-      else
-        Object.const_set(title, clazz)
-      end
     end
   end
 end
