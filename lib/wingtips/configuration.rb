@@ -1,6 +1,6 @@
 module Wingtips
   class Configuration
-    include SlideDSL
+    include DSL
     
     attr_reader :slide_classes, :app_options
 

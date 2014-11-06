@@ -1,5 +1,5 @@
 module Wingtips
-  module SlideDSL
+  module DSL
     def slide(title=nil, &content)
       clazz = create_slide_class content
       publish_slide_class clazz, title
@@ -37,4 +37,4 @@ end
 
 
 # extending the main object (doesn't touch the Object class)
-extend Wingtips::SlideDSL
+extend Wingtips::DSL
