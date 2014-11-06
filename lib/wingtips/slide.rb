@@ -157,6 +157,10 @@ module Wingtips
                                      margin_top: 50)
     end
 
+    def center_horizontally(element)
+      element.left = @app.width / 2 - element.width / 2
+    end
+
     def defaulted_options(passed, defaults={})
       results = defaults.merge(passed)
       if results[:vertical_align] == 'center'
