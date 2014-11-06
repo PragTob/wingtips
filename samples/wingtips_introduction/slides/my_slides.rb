@@ -16,6 +16,10 @@ class Bullets < Wingtips::Slide
   end
 end
 
+slide 'DSLSlide' do
+  headline 'Using the fancier DSL'
+end
+
 class Images < Wingtips::Slide
   def content
     headline 'Embed images and shoes easily!'
