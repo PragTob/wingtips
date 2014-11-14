@@ -1,5 +1,5 @@
 # encoding: UTF-8
-require 'ext/highlighter'
+require 'shoes/highlighter'
 
 module Wingtips
   PHOTO_CREDIT_SIZE = 18
@@ -10,7 +10,7 @@ module Wingtips
   ENORMOUS_SIZE = 140
 
   class Slide
-    include HH::Markup
+    include Shoes::Highlighter::Markup
 
     IMAGES_DIRECTORY  = 'images/'
     CODE_DIRECTORY    = 'code/'
