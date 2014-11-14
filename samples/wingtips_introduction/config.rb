@@ -5,3 +5,13 @@ slides Hello, Bullets, DSLSlide, Images, FullScreenImage, FullyShownImage, Code,
 slide do
   headline 'Fancy DSLs can even be unnamed'
 end
+
+code = <<-CODE
+class MyClass
+  def fancy_method
+    magic!
+  end
+end
+CODE
+
+code_slide 'Template methods', code
