@@ -1,7 +1,7 @@
 module Wingtips
   class Configuration
     include DSL
-    
+
     attr_reader :slide_classes, :app_options
 
     def initialize(path)
@@ -12,6 +12,7 @@ module Wingtips
       }
 
       full_path = File.expand_path(path)
+      load_templates full_path
       load_named_slides full_path
 
       # the empty slide at the start is needed as otherwise the dimensions
@@ -28,23 +29,31 @@ module Wingtips
     def slides(*slide_classes)
       @slide_classes.concat(slide_classes)
     end
-    
+
     def unnamed_slides_allowed?
       @allow_unnamed_slides
     end
-    
+
     class << self
       attr_accessor :current
     end
 
     private
+    def load_templates(full_path)
+      load_in_dir(full_path, "templates/*.rb")
+    end
+
     def load_named_slides(full_path)
       @allow_unnamed_slides = false
+      load_in_dir(full_path, "slides/*.rb")
+      @allow_unnamed_slides = true
+    end
+
+    def load_in_dir(full_path, pattern)
       dir = File.dirname(full_path)
-      Dir[File.join(dir, "slides/*.rb")].each do |file|
+      Dir[File.join(dir, pattern)].each do |file|
         require file unless file == full_path
       end
-      @allow_unnamed_slides = true
     end
   end
 end
