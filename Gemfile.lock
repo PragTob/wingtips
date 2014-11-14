@@ -1,13 +1,15 @@
 GIT
   remote: git://github.com/shoes/shoes4.git
-  revision: 9d180859faeda87ddbfbd99e95558f69ba303707
+  revision: 52a6902d3595e83c8dc367398c3a2fb98704c601
   specs:
     shoes (4.0.0.pre2)
       furoshiki (>= 0.1.2)
       nokogiri
       shoes-dsl (= 4.0.0.pre2)
+      shoes-highlighter (~> 1.0.0)
       shoes-swt (= 4.0.0.pre2)
     shoes-dsl (4.0.0.pre2)
+    shoes-highlighter (1.0.0)
     shoes-swt (4.0.0.pre2)
       after_do (~> 0.3)
       furoshiki (~> 0.2.0)
@@ -32,7 +34,7 @@ GEM
     jruby-jars (1.7.16.1)
     jruby-rack (1.1.16)
     method_source (0.8.2)
-    nokogiri (1.6.3.1-java)
+    nokogiri (1.6.4.1-java)
     plist (3.1.0)
     pry (0.10.1-java)
       coderay (~> 1.1.0)
