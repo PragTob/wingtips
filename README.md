@@ -51,21 +51,24 @@ end
 ```
 
 ### OS X
-If the gem is not installing (`gem install wingtips`),
+If the gem is not installing (i.e. `gem install wingtips`), then:
+
 1. Fork this repo.
-2. Add this flag to `bin/wingtips`:
-```ruby
-#! /usr/bin/env jruby -J-XstartOnFirstThread
-```
-this prevents this error on Mac OS X:
-```bash
-Presenting 12 slides
-***WARNING: Display must be created on main thread due to Cocoa restrictions.
-LoadError: Couldn't load backend Shoes::Swt'. Error: load error: shoes/swt -- org.eclipse.swt.SWTException: Invalid thread access
-org/jruby/RubyKernel.java:1065:in `require'
-```
-3. start the presentation with `bin/wingtips samples/wingtips_introduction`
-4. left/right arrows navigate the slides
+1. Add this flag to `bin/wingtips`:
+    ```ruby
+    #! /usr/bin/env jruby -J-XstartOnFirstThread
+    ```
+    
+    this prevents this error on Mac OS X:
+    
+    ```bash
+    Presenting 12 slides
+    ***WARNING: Display must be created on main thread due to Cocoa restrictions.
+    LoadError: Couldn't load backend Shoes::Swt'. Error: load error: shoes/swt -- org.eclipse.swt.SWTException: Invalid thread access
+    org/jruby/RubyKernel.java:1065:in `require'
+    ```
+1. start the presentation with `bin/wingtips samples/wingtips_introduction`
+1. left/right arrows navigate the slides
 
 
 ## Contributing
