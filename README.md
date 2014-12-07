@@ -4,7 +4,7 @@ A presentation tool written in ruby - write your slides in Ruby!
 
 ## Attention
 
-This coming to a gem host near you soon enough, for now shoes4.pre2 is missing the files we need for code highlighting - we will try to figure this out soon enough :)
+This is coming to a gem host near you soon enough, for now shoes4.pre2 is missing the files we need for code highlighting - we will figure this out soon enough :) Until then please clone this repo (or fork and clone) and run `bundle install`.
 
 ## Installation
 
@@ -14,6 +14,12 @@ Add this line to your application's Gemfile:
 
 ```ruby
 gem 'wingtips'
+```
+
+Or to grab it straight from github (for now that's the only way that works):
+
+```ruby
+gem 'wingtips', github: 'PragTob/wingtips'
 ```
 
 And then execute:
