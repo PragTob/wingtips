@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['pragtob@gmail.com', 'jason@jasonrclark.net']
   spec.summary       = %q{Presentation software for Shoes}
   spec.description   = %q{Put your best foot forward, present with Shoes!}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/PragTob/wingtips"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
