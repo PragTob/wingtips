@@ -32,10 +32,10 @@ A `wingtips` presentation expects this layout:
 
 ```
 presentation_folder/
-  config.rb
-  slides/*.rb
   code/*.rb
   images/*.*
+  slides/*.rb
+  config.rb
 ```
 
 And a basic slide looks like this:
@@ -51,6 +51,20 @@ class Bullets < Wingtips::Slide
   end
 end
 ```
+
+You can express the same slide an even more fluent DSL like this:
+
+```ruby
+slide do
+  headline 'Use bullet points, would you?'
+
+  bullet "It's easy isn't it?"
+  bullet 'Just keep on'
+  bullet 'with ease!'
+end
+```
+
+For more examples please refer to the `samples` directory!
 
 ### OS X
 
