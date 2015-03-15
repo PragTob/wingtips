@@ -1,5 +1,4 @@
 # encoding: UTF-8
-require 'shoes/highlighter'
 
 module Wingtips
   PHOTO_CREDIT_SIZE = 18

@@ -1,5 +1,3 @@
-require 'wingtips/slide'
-
 module Wingtips
   module Presentation
     NEXT_KEYS     = [:right, :page_down, " "]
