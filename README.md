@@ -2,10 +2,6 @@
 
 A presentation tool written in ruby - write your slides in Ruby!
 
-## Attention
-
-This is coming to a gem host near you soon enough, for now shoes4.pre2 is missing the files we need for code highlighting - we will figure this out soon enough :) Until then please clone this repo (or fork and clone) and run `bundle install`.
-
 ## Installation
 
 Ensure that [JRuby](jruby.org) is installed.
@@ -16,7 +12,7 @@ Add this line to your application's Gemfile:
 gem 'wingtips'
 ```
 
-Or to grab it straight from github (for now that's the only way that works):
+Or to grab it straight from github
 
 ```ruby
 gem 'wingtips', github: 'PragTob/wingtips'
@@ -36,10 +32,10 @@ A `wingtips` presentation expects this layout:
 
 ```
 presentation_folder/
-  config.rb
-  slides/*.rb
   code/*.rb
   images/*.*
+  slides/*.rb
+  config.rb
 ```
 
 And a basic slide looks like this:
@@ -55,6 +51,20 @@ class Bullets < Wingtips::Slide
   end
 end
 ```
+
+You can express the same slide an even more fluent DSL like this:
+
+```ruby
+slide do
+  headline 'Use bullet points, would you?'
+
+  bullet "It's easy isn't it?"
+  bullet 'Just keep on'
+  bullet 'with ease!'
+end
+```
+
+For more examples please refer to the `samples` directory!
 
 ### OS X
 
