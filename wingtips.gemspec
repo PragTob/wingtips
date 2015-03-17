@@ -6,7 +6,7 @@ require 'wingtips/version'
 Gem::Specification.new do |spec|
   spec.name          = "wingtips"
   spec.version       = Wingtips::VERSION
-  spec.authors       = ['Tobias Pfiffer', 'Jason R. Clark']
+  spec.authors       = ['Tobias Pfeiffer', 'Jason R. Clark']
   spec.email         = ['pragtob@gmail.com', 'jason@jasonrclark.net']
   spec.summary       = %q{Presentation software for Shoes}
   spec.description   = %q{Put your best foot forward, present with Shoes!}
