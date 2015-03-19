@@ -126,6 +126,7 @@ module Wingtips
     def scale_image_by(img, ratio)
       img.width = (img.width * ratio).to_i
       img.height = (img.height * ratio).to_i
+      img
     end
 
     def centered_title(string, opts={})
