@@ -9,6 +9,7 @@ module Wingtips
 
       Shoes.app(config.app_options) do
         @slides = slides
+        @slide_options = config.slide_options
 
         def start
           setup_controls
@@ -29,7 +30,7 @@ module Wingtips
 
           @current_slide_number = number.to_i
           slide_class = @slides[@current_slide_number]
-          @current_slide = slide_class.new(app)
+          @current_slide = slide_class.new(app, @slide_options)
           @current_slide.show
         end
 

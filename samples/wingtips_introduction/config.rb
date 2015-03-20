@@ -1,4 +1,6 @@
 # Arrange the order of your slides here
+slide_options background_color: Shoes::COLORS[:white]
+
 slides Hello, Bullets, DSLSlide, Images, FullScreenImage, FullyShownImage, Code,
        CodeExecute, HowDoesThisWork
        

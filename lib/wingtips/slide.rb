@@ -16,9 +16,10 @@ module Wingtips
 
     attr_reader :app
 
-    def initialize(app)
+    def initialize(app, slide_options)
       @app = app
       @effects = []
+      @background_color = slide_options[:background_color]
       after_initialize
     end
 
@@ -28,6 +29,7 @@ module Wingtips
 
     def show
       @main_slot = stack height: app.height do
+        background @background_color if @background_color
         content
       end
     end
