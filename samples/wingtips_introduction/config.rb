@@ -16,27 +16,6 @@ slide_options background_color: Shoes::COLORS[:white],
                   matching:  { stroke: "#ff0", weight: "bold" },
               }
 
-
-
-code = <<-CODE
-class MyClass
-  def fancy_method
-    magic!
-    5 + 5
-    :symbol
-    COLOR
-    OtherClass
-    @conference
-  end
-end
-CODE
-
-code_slide 'Template methods', code
-
-@conference
-
-code_slide 'Template methods', code
-
 slides Hello, Bullets, DSLSlide, Images, FullScreenImage, FullyShownImage, Code,
        CodeExecute, HowDoesThisWork
        
