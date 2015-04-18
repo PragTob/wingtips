@@ -29,7 +29,7 @@ module Wingtips
     end
 
     def wingtips_options(opts={})
-      @wingtips_options.merge!(opts)
+      HashUtils.deep_merge! @wingtips_options, opts
     end
 
     def slides(*slide_classes)
