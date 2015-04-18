@@ -29,6 +29,12 @@ RSpec.describe Wingtips::HashUtils do
       Wingtips::HashUtils.deep_merge first, {b: 7}
       expect(first).to eq({a: 5})
     end
+
+    it 'can merge with a frozen hash' do
+      frozen = {a: 7}.freeze
+      result = Wingtips::HashUtils.deep_merge frozen, {a: 20}
+      expect(result).to eq({a: 20})
+    end
   end
 
   describe '.deep_merge!' do
@@ -36,6 +42,11 @@ RSpec.describe Wingtips::HashUtils do
       first = {a: 5}
       Wingtips::HashUtils.deep_merge! first, {b: 7}
       expect(first).to eq({a: 5, b: 7})
+    end
+
+    it 'raises an error when trying to merge in a frozen hash' do
+      frozen = {a: 5}.freeze
+      expect {Wingtips::HashUtils.deep_merge! frozen, {a: 20}}.to raise_error
     end
   end
 end

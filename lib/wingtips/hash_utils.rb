@@ -3,7 +3,7 @@ module Wingtips
     extend self
 
     def deep_merge(hash1, hash2)
-      deep_merge!(hash1.clone, hash2)
+      deep_merge!(hash1.dup, hash2)
     end
 
     def deep_merge!(hash1, hash2)
