@@ -28,6 +28,10 @@ module Wingtips
       @wingtips_options[:app]
     end
 
+    def template_options
+      @wingtips_options[:templates]
+    end
+
     def wingtips_options(opts={})
       HashUtils.deep_merge! @wingtips_options, opts
     end
