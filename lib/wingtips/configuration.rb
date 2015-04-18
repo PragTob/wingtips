@@ -2,15 +2,16 @@ module Wingtips
   class Configuration
     include DSL
 
-    attr_reader :slide_classes, :app_options, :slide_options
+    attr_reader :slide_classes
 
     def initialize(path)
       self.class.current = self
-      @app_options = {
-        title:      'Presentation',
-        fullscreen: true
+      @wingtips_options = {
+        app: {
+          title:      'Presentation',
+          fullscreen: true
+        }
       }
-      @slide_options = {}
 
       full_path = File.expand_path(path)
       load_templates full_path
@@ -23,12 +24,12 @@ module Wingtips
       self.instance_eval(File.read(full_path))
     end
 
-    def startup_options(opts={})
-      @app_options.merge!(opts)
+    def app_options
+      @wingtips_options[:app]
     end
 
-    def slide_options(opts={})
-      @slide_options.merge! opts
+    def wingtips_options(opts={})
+      @wingtips_options.merge!(opts)
     end
 
     def slides(*slide_classes)

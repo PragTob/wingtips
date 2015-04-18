@@ -16,14 +16,10 @@ module Wingtips
 
     attr_reader :app
 
-    def initialize(app, slide_options = {})
+    def initialize(app, wingtips_options = {})
       @app = app
       @effects = []
-      @background_color = slide_options[:background_color]
-      @code_highlighting = Shoes::Highlighter::Markup::COLORS
-      if slide_options[:code_highlighting]
-        @code_highlighting = @code_highlighting.merge slide_options[:code_highlighting]
-      end
+      @background_color = wingtips_options[:background_color]
       after_initialize
     end
 
@@ -52,10 +48,11 @@ module Wingtips
       end
     end
 
-    def code(string, demo_as_effect = false, &block)
+    def code(string, demo_as_effect = false, options = {}, &block)
       source = source_from string
       source = source.split("\n").map{|line| '     ' + line}.join("\n")
-      highlighted_code = para *highlight(source, nil, @code_highlighting), size: CODE_SIZE
+      opts = {size: CODE_SIZE}.merge options
+      highlighted_code = para *highlight(source, nil, @app.code_highlighting), opts
       add_demo_as_effect(source, &block) if demo_as_effect
       highlighted_code
     end
