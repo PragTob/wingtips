@@ -9,11 +9,19 @@ module Wingtips
 
       Shoes.app(config.app_options) do
         @slides = slides
-        @slide_options = config.slide_options
+        @wingtips_options = config.wingtips_options
+        @code_highlighting = Shoes::Highlighter::Markup::COLORS
+        if @wingtips_options[:code_highlighting]
+          @code_highlighting = @code_highlighting.merge @wingtips_options[:code_highlighting]
+        end
 
         def start
           setup_controls
           go_to_slide(0)
+        end
+
+        def code_highlighting
+          @code_highlighting
         end
 
         def on_slide_change(&block)
@@ -30,7 +38,7 @@ module Wingtips
 
           @current_slide_number = number.to_i
           slide_class = @slides[@current_slide_number]
-          @current_slide = slide_class.new(app, @slide_options)
+          @current_slide = slide_class.new(app, @wingtips_options)
           @current_slide.show
         end
 
