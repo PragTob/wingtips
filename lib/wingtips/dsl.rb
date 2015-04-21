@@ -4,7 +4,9 @@ module Wingtips
       clazz = create_slide_class content
       publish_slide_class clazz, title
     end
-    
+
+    include Wingtips::Templates::TitleSlide
+
     private
 
     def create_slide_class(content)
@@ -31,7 +33,14 @@ module Wingtips
     end
 
     def unnamed_slides_allowed?
-      configuration.unnamed_slides_allowed?    
+      configuration.unnamed_slides_allowed?
+    end
+
+    # merge order is = defaults, template, custom
+    def merge_template_options(default_options, template_key, custom_options = {})
+      template_options = configuration.template_options.fetch template_key, {}
+      options = Wingtips::HashUtils.deep_merge(default_options, template_options)
+      Wingtips::HashUtils.deep_merge(options, custom_options)
     end
   end
 end
