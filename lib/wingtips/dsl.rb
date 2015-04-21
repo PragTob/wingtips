@@ -6,6 +6,7 @@ module Wingtips
     end
     
     private
+
     def create_slide_class(content)
       clazz = Class.new(Wingtips::Slide)
       clazz.class_eval do
@@ -13,7 +14,7 @@ module Wingtips
       end
       clazz
     end
-    
+
     def publish_slide_class(clazz, title)
       if unnamed_slides_allowed? && title.nil?
         @slide_classes << clazz
@@ -24,11 +25,11 @@ module Wingtips
         Object.const_set(title, clazz)
       end
     end
-    
+
     def configuration
       Wingtips::Configuration.current
     end
-    
+
     def unnamed_slides_allowed?
       configuration.unnamed_slides_allowed?    
     end
