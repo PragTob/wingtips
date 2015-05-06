@@ -3,6 +3,9 @@
 require 'bundler/setup'
 Bundler.require
 
+require 'shoes/swt'
+Shoes::Swt.initialize_backend
+
 require 'wingtips/presentation'
 require 'wingtips/configuration'
 
